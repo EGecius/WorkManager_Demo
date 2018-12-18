@@ -15,9 +15,11 @@ class MyWorker(context: Context, workerParams: WorkerParameters) : Worker(contex
     }
 
     private fun doMyWork() {
-        Log.v("Eg:MyWorker:13", "doWork doing work")
-
         val threadName = Thread.currentThread().name
-        Log.v("Eg:MyWorker:21", "doMyWork threadName $threadName")
+        Log.v("Eg:MyWorker:13", "doWork starting work on thread:.... $threadName")
+
+        Thread.sleep(3_000)
+
+        Log.v("Eg:MyWorker:23", "..... work finished")
     }
 }
