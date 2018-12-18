@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val request: OneTimeWorkRequest = OneTimeWorkRequest.Builder(MyWorker::class.java)
             .setConstraints(constraints)
+            .addTag("egis")
             .build()
 
         WorkManager.getInstance().enqueue(request)
