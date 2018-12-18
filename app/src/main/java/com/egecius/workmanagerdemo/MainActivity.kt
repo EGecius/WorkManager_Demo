@@ -19,11 +19,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setupCancelButton()
+        setupButtons()
     }
 
-    private fun setupCancelButton() {
-        findViewById<Button>(R.id.cancel_work).setOnClickListener {
+    private fun setupButtons() {
+        findViewById<Button>(R.id.start_worker).setOnClickListener {
+            demoWorkManager()
+        }
+
+        findViewById<Button>(R.id.cancel_worker).setOnClickListener {
             uuidOfQueuedRequest?.let { it1 -> WorkManager.getInstance().cancelWorkById(it1) }
         }
     }
